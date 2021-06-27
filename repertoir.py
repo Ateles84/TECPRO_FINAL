@@ -24,3 +24,10 @@ class Repertoir(object):
             if (x.match(instr)):
                 return x
         raise UnknownCodeError("No s'ha trobat cap ordre per l'instr introduit: " + bin(instr)[2:])
+
+class UnknownCodeError(AVRException):
+    """
+    Classe UnknownCodeError
+
+    """
+    pass

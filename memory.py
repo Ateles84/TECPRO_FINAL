@@ -3,6 +3,8 @@ Mòdul Memory
 
 """
 
+from avrexcept import *
+
 class Memory(object): #falta saber on va
     """
     Classe Memory
@@ -76,13 +78,13 @@ class Memory(object): #falta saber on va
             try:
                 print("Read " + str(hex(self._m[addr])[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
 
-            except OutOfMemError:
+            except IndexError:
                 raise OutOfMemError("Read from " + str(hex(addr)[2:].upper()) + " out of range")
 
         else:
             pass
 
-        return int(self._m[addr])
+        #return hex(self._m[addr])[2:].upper()
 
     def __setitem__(self, addr, val):
         """
@@ -176,18 +178,21 @@ class DataMemory(Memory):
         print("Y(R" + str(lenght-3) + ":R" + str(lenght-4) + "): " + str(str(a._m[-3])[-2:]) + str(str(a._m[-4])[-2:]))
         print("Z(R" + str(lenght-1) + ":R" + str(lenght-2) + "): " + str(str(a._m[-1])[-2:]) + str(str(a._m[-2])[-2:])) #8 bits
 
+class OutOfMemError(Exception):
+    pass
+
 if __name__=='__main__':
     a = DataMemory(45)
     #a.dump(0 , 33)
-    a.dump_reg()
-    a.trace_on()
-    a.__setitem__(1 , 3)
-    a.__setitem__(4 , 76)
+    #a.dump_reg()
     a.trace_off()
-    a.__setitem__(34 , 8888)
-    a.trace_on()
+    a.__setitem__(1 , 3)
+    a.__setitem__(4 , 26)
+    a.__setitem__(43 , 3)
     a.__setitem__(21 , 2)
     a.__setitem__(19 , 87)
-    a.dump_reg()
-    print(a.__getitem__(4))
-    #a.__getitem__(43)    Errors no definits encara
+    a.trace_on()
+    a.trace_on()
+    #a.dump_reg()
+    #print(a.__getitem__(4))
+    a.__getitem__(443)

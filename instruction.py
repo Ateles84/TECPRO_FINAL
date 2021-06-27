@@ -52,6 +52,11 @@ class Add(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if type(instr) == int:
+            pass
+        else:
+            instr = int(instr,16)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -71,6 +76,8 @@ class Add(InstRunner):
         """
         instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.
         """
+
+        instr = int(instr,16)
         if (self.match(instr)):
                 toCheck = ""
                 if (len(str(bin(instr))[2:]) <= 15):
@@ -84,8 +91,8 @@ class Add(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)),16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)),16)
 
 
                 state.data.__setitem__(int(Rd,2), Byte(valorRd) + Byte(valorLd))
@@ -1051,20 +1058,22 @@ class Out(InstRunner): #aquesta es diferent
 if __name__=='__main__':
     print("prova ADD 2 registers")
     s=State()
-    s.prog[0]=0b0000110000010010
-    print(s.prog[0])
-    s.data[0b00001]=5
-    s.data[0b00010]=5
+    s.prog[0] = 0b0000110011010010
+    #print(s.prog[0])
+    s.data[0b01101] = 5
+    s.data[0b00010] = 5
     a=Add()
     print(a.match(s.prog[0]))
     a.execute(s.prog[0],s)
     print(s.pc)
-    print("registre R1",s.data[1])
-    print("registre R2",s.data[2])
+    print("Registre R13",s.data[13])
+    print("Registre R2",s.data[2])
     s.data.trace_on()
     a.execute(s.prog[0],s)
     s.data.trace_off()
     print(s.pc)
+    #s.dump_reg()
+
 
 #Result
 # prova ADD 2 registers

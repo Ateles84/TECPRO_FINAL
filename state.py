@@ -21,10 +21,10 @@ class State(object):
         """
         d = DataMemory(data)      #Es el banc de memòria de dades de l’AVR
         self.data = d
-        self._traced = d._trace
+        self.dataLL = d._m
         p = ProgramMemory(prog)   #Es el banc de memòria de programa de l’AVR.
         self.prog = p
-        self._tracep = p._trace
+        self.progLL = p._m
         self.pc =  Word(0)              #Un Word, Program Counter. El 2 es exemple
         self.flags = Byte(0)         #Un Byte, els flags carry(0), zero(1) i neg(2). El 123 es exemple
 
@@ -34,9 +34,9 @@ class State(object):
         Retorna un str que representa el bolcat de la memòria de dades.
         """
         #print(len(str(len(self.data))))
-        for x,y in enumerate(self.data):
+        for x,y in enumerate(self.dataLL):
 
-            while len(str(x)) < len(str(len(self.data))):
+            while len(str(x)) < len(str(len(self.dataLL))):
                 x = "0" + str(x)
 
             print(str(x) + ": " + str(y))
@@ -48,9 +48,9 @@ class State(object):
         Retorna un str que representa el bolcat de la memòria de programa.
         """
 
-        for x,y in enumerate(self.prog):
+        for x,y in enumerate(self.progLL):
 
-            while len(str(x)) < len(str(len(self.prog))):
+            while len(str(x)) < len(str(len(self.progLL))):
                 x = "0" + str(x)
 
             print(str(x) + ": " + str(y))
@@ -71,19 +71,21 @@ class State(object):
 
         """
         length = 32
-        for x,y in enumerate(self.data):
-
+        for x,y in enumerate(self.dataLL):
             if (x > 31):
                 pass
             else:
                 while len(str(x)) < 2:
                     x = "0" + str(x)
 
+                while len(str(y)) < 8:
+                    y = "0" + str(y)
+
                 print("R" + str(x) + ": " + str(y)[-2:].upper())
 
-        print("X(R" + str(length-5) + ":R" + str(length-6) + "): " + str(str(self.data[-5])[-2:]) + str(str(self.data[-6])[-2:]))
-        print("Y(R" + str(length-3) + ":R" + str(length-4) + "): " + str(str(self.data[-3])[-2:]) + str(str(self.data[-4])[-2:]))
-        print("Z(R" + str(length-1) + ":R" + str(length-2) + "): " + str(str(self.data[-1])[-2:]) + str(str(self.data[-2])[-2:])) #8 bits
+        print("X(R" + str(length-5) + ":R" + str(length-6) + "): " + str(str(self.dataLL[-5])[-2:]) + str(str(self.dataLL[-6])[-2:]))
+        print("Y(R" + str(length-3) + ":R" + str(length-4) + "): " + str(str(self.dataLL[-3])[-2:]) + str(str(self.dataLL[-4])[-2:]))
+        print("Z(R" + str(length-1) + ":R" + str(length-2) + "): " + str(str(self.dataLL[-1])[-2:]) + str(str(self.dataLL[-2])[-2:])) #8 bits
 
         aux = bin(self.flags)[2:]
         while(len(aux) < 3):
