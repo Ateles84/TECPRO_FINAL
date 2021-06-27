@@ -74,13 +74,15 @@ class Memory(object): #falta saber on va
         """
         if self._trace:
             try:
-                return "Read " + str(hex(self._m[addr])[2:].upper()) + " from " + str(hex(addr)[2:].upper())
+                print("Read " + str(hex(self._m[addr])[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
 
             except OutOfMemError:
                 raise OutOfMemError("Read from " + str(hex(addr)[2:].upper()) + " out of range")
 
         else:
             pass
+
+        return int(self._m[addr])
 
     def __setitem__(self, addr, val):
         """
@@ -94,13 +96,14 @@ class Memory(object): #falta saber on va
         if self._trace:
             try:
                 self._m[addr] = val
-                return "Write " + str(hex(val)[2:].upper()) + " to " + str(hex(self._m[addr])[2:].upper())
+                print("Write " + str(hex(val)[2:].upper()) + " to " + str(hex(addr)[2:].upper()))
 
             except OutOfMemError:
                 raise OutOfMemError("Write to " + str(hex(addr)[2:].upper()) +" out of range")
 
+
         else:
-            pass
+            self._m[addr] = val
 
 class ProgramMemory(Memory):
     """

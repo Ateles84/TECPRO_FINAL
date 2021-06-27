@@ -5,7 +5,7 @@ Mòdul State
 from memory import DataMemory
 from memory import ProgramMemory
 from memory import Memory
-from BitVector import Byte
+from bitvector import *
 
 
 class State(object):
@@ -20,12 +20,12 @@ class State(object):
 
         """
         d = DataMemory(data)      #Es el banc de memòria de dades de l’AVR
-        self.data = d._m
-        #self._traced = d._trace
+        self.data = d
+        self._traced = d._trace
         p = ProgramMemory(prog)   #Es el banc de memòria de programa de l’AVR.
-        self.prog = p._m
-        #self._tracep = p._trace
-        self.pc =  2              #Un Word, Program Counter. El 2 es exemple
+        self.prog = p
+        self._tracep = p._trace
+        self.pc =  Word(0)              #Un Word, Program Counter. El 2 es exemple
         self.flags = Byte(0)         #Un Byte, els flags carry(0), zero(1) i neg(2). El 123 es exemple
 
         #self.pc i self.flags per defecte els iniciem a 0

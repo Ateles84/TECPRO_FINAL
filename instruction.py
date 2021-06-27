@@ -3,8 +3,8 @@ Mòdul Instruction
 
 """
 from state import State
-from BitVector import Word
-from BitVector import Byte
+from bitvector import Word
+from bitvector import Byte
 import sys
 
 class InstRunner(object):
@@ -64,6 +64,7 @@ class Add(InstRunner):
         if (toCheck[:6] == "000011"):
             return True
         else:
+            print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -122,6 +123,7 @@ class Adc(InstRunner):
         if (toCheck[:6] == "000111"):
             return True
         else:
+            print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -169,7 +171,7 @@ class Sub(InstRunner):
         """
         retorna una cadena que representa la instrucció
         """
-        return "algo"
+        return "SUB"
 
     def match(self , instr):
         """
@@ -188,6 +190,7 @@ class Sub(InstRunner):
         if (toCheck[:6] == "000110"):
             return True
         else:
+            print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -1046,8 +1049,30 @@ class Out(InstRunner): #aquesta es diferent
         state.pc += 1
 
 if __name__=='__main__':
-    a = State(134)
-    a.data.__setitem__(2, hex(231))
-    a.data.__setitem__(3, hex(43))
-    b = Break()
-    b.execute(Word(38296), a)
+    print("prova ADD 2 registers")
+    s=State()
+    s.prog[0]=0b0000110000010010
+    print(s.prog[0])
+    s.data[0b00001]=5
+    s.data[0b00010]=5
+    a=Add()
+    print(a.match(s.prog[0]))
+    a.execute(s.prog[0],s)
+    print(s.pc)
+    print("registre R1",s.data[1])
+    print("registre R2",s.data[2])
+    s.data.trace_on()
+    a.execute(s.prog[0],s)
+    s.data.trace_off()
+    print(s.pc)
+
+#Result
+# prova ADD 2 registers
+# True
+# 0001
+# registre R1 0A
+# registre R2 05
+# Read 0x05 from 0x02
+# Read 0x0A from 0x01
+# Write 0x0F to 0x01
+# 0002

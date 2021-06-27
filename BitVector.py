@@ -2,9 +2,12 @@ class BitVector(object):
     """docstring for BitVector."""
 
     def __init__(self, w = 0):
-        self._w = 0
-        if (w > 16):
-            self._w = w
+        if (w > 255 and type(self) == Byte):
+            aux = bin(w)[2:]
+            while len(aux) < 16:
+                aux = "0" + aux
+            self._w = int(aux[8:16],2)
+
         else:
             self._w = w
 
@@ -56,9 +59,20 @@ class BitVector(object):
 
         resultat = operandA + operandB
         if (resultat < 0):
-             return BitVector(128 + (128 - resultat * -1))
+            if (type(self) == Byte):
+                return Byte(128 + (128 - resultat * -1))
+            elif(type(self) == Word):
+                return Word(128 + (128 - resultat * -1))
+            else:
+                return BitVector(128 + (128 - resultat * -1))
+
         else:
-            return BitVector(operandA + operandB)
+            if (type(self) == Byte):
+                return Byte(resultat)
+            elif(type(self) == Word):
+                return Word(resultat)
+            else:
+                return BitVector(resultat)
 
     def __sub__(self, o):
         """
@@ -99,27 +113,52 @@ class BitVector(object):
 
         resultat = operandA - operandB
         if (resultat < 0):
-             return BitVector(128 + (128 - resultat * -1))
+             if (type(self) == Byte):
+                 return Byte(128 + (128 - resultat * -1))
+             elif(type(self) == Word):
+                 return Word(128 + (128 - resultat * -1))
+             else:
+                 return BitVector(128 + (128 - resultat * -1))
         else:
-            return BitVector(operandA - operandB)
+            if (type(self) == Byte):
+                return Byte(resultat)
+            elif(type(self) == Word):
+                return Word(resultat)
+            else:
+                return BitVector(resultat)
 
     def __and__(self, o):
         """
         Operador and del bitVector amb o (&)
         """
-        return BitVector(int(self._w) & int(o))
+        if (type(self) == Byte):
+            return Byte(int(self._w) & int(o))
+        elif(type(self) == Word):
+            return Word(int(self._w) & int(o))
+        else:
+            return BitVector(int(self._w) & int(o))
 
     def __or__(self, o):
         """
         Operador or del bitVector amb o (|)
         """
-        return BitVector(int(self._w) | int(o))
+        if (type(self) == Byte):
+            return Byte(int(self._w) | int(o))
+        elif(type(self) == Word):
+            return Word(int(self._w) | int(o))
+        else:
+            return BitVector(int(self._w) | int(o))
 
     def __xor__(self, o):
         """
         Operador xor del bitVector amb o (^)
         """
-        return BitVector(int(self._w) ^ int(o))
+        if (type(self) == Byte):
+            return Byte(int(self._w) ^ int(o))
+        elif(type(self) == Word):
+            return Word(int(self._w) ^ int(o))
+        else:
+            return BitVector(int(self._w) ^ int(o))
 
     def __invert__(self):
         """
@@ -135,19 +174,34 @@ class BitVector(object):
                 resultVec += "0"
             else:
                 resultVec += "1"
-            #print(resultVec[::-1])
+            #
 
-        return BitVector(int(resultVec[::-1], 2))
+        if (type(self) == Byte):
+            return Byte(int(resultVec[::-1], 2))
+        elif(type(self) == Word):
+            return Word(int(resultVec[::-1], 2))
+        else:
+            return BitVector(int(resultVec[::-1], 2))
 
     def __lshift__(self, i = 1):
         if (i < len(str(bin(self._w))[2:])):
-            return BitVector(int(self._w) << i)
+            if (type(self) == Byte):
+                return Byte(int(self._w) << i)
+            elif(type(self) == Word):
+                return Word(int(self._w) << i)
+            else:
+                return BitVector(int(self._w) << i)
         else:
             raise IndexError("i is out of bounds (lshift)")
 
     def __rshift__(self, i = 1):
         if (i < len(str(bin(self._w))[2:])):
-            return BitVector(int(self._w) >> i)
+            if (type(self) == Byte):
+                return Byte(int(self._w) >> i)
+            elif(type(self) == Word):
+                return Word(int(self._w) >> i)
+            else:
+                return BitVector(int(self._w) >> i)
         else:
             raise IndexError("i is out of bounds (lshift)")
 
@@ -171,7 +225,17 @@ class Byte(BitVector):
         return 8
 
     def concat(self, b):
-        return Word(int(str(bin(self._w))[2:] + str(bin(b))[2:], 2))
+        conA = bin(self)[2:]
+        while len(conA) < 8:
+            conA = "0" + conA
+
+        conB = bin(b)[2:]
+        while len(conB) < 8:
+            conB = "0" + conB
+
+        print("A: " + conA + " | " + conB)
+
+        return Word(int(conA + conB, 2))
 
 class Word(BitVector):
     """docstring for Word."""
@@ -190,12 +254,10 @@ class Word(BitVector):
 
 
 if __name__ == "__main__":
-    lel = Word(354)
-    lel2 = Byte(132)
-    print(lel.lsb())
-    #lel = lel.concat(lel2)
-    #print(bin(lel))
-    #print(int(lel.lsb()))
+    lel = Byte(42)
+    lel2 = Byte(95)
+    print(bin(lel) + "\n" + bin(lel2))
+
     #lel2 = (lel << 2)
     #print(int(lel2))
     #print(type(lel2))
