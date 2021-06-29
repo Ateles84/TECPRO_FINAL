@@ -20,11 +20,11 @@ LDI R0, 65 -- 1110 0100 0000 0001 -- 58369
 OUT 3, R0 -- 10111 00 00000 0011 -- 47107
 [58369, 47107]
 -------------------------------
-LDI R0, 65             ; la base del codi ASCII
-ADD R17, R0
-OUT 3, R0              ; escrivim caracter
-SUBI R16, -1             ; iteracio
-LDI R17, 26
-SUB R17, R0
-BRBC 1, LAB1
-BREAK
+LDI R0, 65       1110010000000001  -  58369   ; la base del codi ASCII
+LDI R1, 1       1110000000010001 - 57361
+ADD R0, R0      0000110000000001 - 3073
+OUT 3, R0       1011100000000011 - 47107   ; escrivim caracter
+SUBI R2, -1    0101111100101111 - 24367       ; iteracio
+
+BREAK - 1001010110011000 -- 38296
+[58369, 57361, 3073, 47107, 24367]
