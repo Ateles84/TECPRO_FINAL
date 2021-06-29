@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cat">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>instruction &#8212; ProjecteFinal 1.0b2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for instruction</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Mòdul Instruction</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">state</span> <span class="k">import</span> <span class="n">State</span>
+<span class="kn">from</span> <span class="nn">bitvector</span> <span class="k">import</span> <span class="n">Word</span>
+<span class="kn">from</span> <span class="nn">bitvector</span> <span class="k">import</span> <span class="n">Byte</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<div class="viewcode-block" id="InstRunner"><a class="viewcode-back" href="../moduls.html#instruction.InstRunner">[docs]</a><span class="k">class</span> <span class="nc">InstRunner</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe InstRunner</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;algo&quot;</span>
+
+<div class="viewcode-block" id="InstRunner.match"><a class="viewcode-back" href="../moduls.html#instruction.InstRunner.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="InstRunner.execute"><a class="viewcode-back" href="../moduls.html#instruction.InstRunner.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="s2">&quot;kekw&quot;</span></div></div>
+
+<div class="viewcode-block" id="Add"><a class="viewcode-back" href="../moduls.html#instruction.Add">[docs]</a><span class="k">class</span> <span class="nc">Add</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Add</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;ADD&quot;</span>
+
+<div class="viewcode-block" id="Add.match"><a class="viewcode-back" href="../moduls.html#instruction.Add.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">instr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instr</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;000011&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Add.execute"><a class="viewcode-back" href="../moduls.html#instruction.Add.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">instr</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">instr</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span><span class="mi">16</span><span class="p">)</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span><span class="mi">16</span><span class="p">)</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">+</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR ADD&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Adc"><a class="viewcode-back" href="../moduls.html#instruction.Adc">[docs]</a><span class="k">class</span> <span class="nc">Adc</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Adc</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;ADC &quot;</span> <span class="o">+</span> <span class="s2">&quot;R&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="s2">&quot;registe on es guarda&quot;</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; R&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">hex</span><span class="p">(</span><span class="s2">&quot;registe amb el qual es fa la suma&quot;</span><span class="p">))</span>
+
+<div class="viewcode-block" id="Adc.match"><a class="viewcode-back" href="../moduls.html#instruction.Adc.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;000111&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Adc.execute"><a class="viewcode-back" href="../moduls.html#instruction.Adc.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+                <span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
+                    <span class="n">carry</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">Byte</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span><span class="p">)</span>
+
+                <span class="n">resultat</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">+</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span> <span class="o">+</span> <span class="n">carry</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">resultat</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">):</span>
+                    <span class="n">resultat</span> <span class="o">=</span> <span class="n">resultat</span> <span class="o">-</span> <span class="mi">255</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">=</span> <span class="n">Byte</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">+</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR ADC&quot;</span><span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Sub"><a class="viewcode-back" href="../moduls.html#instruction.Sub">[docs]</a><span class="k">class</span> <span class="nc">Sub</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Sub</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;SUB&quot;</span>
+
+<div class="viewcode-block" id="Sub.match"><a class="viewcode-back" href="../moduls.html#instruction.Sub.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;000110&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Sub.execute"><a class="viewcode-back" href="../moduls.html#instruction.Sub.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">-</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR SUB&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Subi"><a class="viewcode-back" href="../moduls.html#instruction.Subi">[docs]</a><span class="k">class</span> <span class="nc">Subi</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Subi</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;SUBI&quot;</span>
+
+<div class="viewcode-block" id="Subi.match"><a class="viewcode-back" href="../moduls.html#instruction.Subi.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;0101&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Subi.execute"><a class="viewcode-back" href="../moduls.html#instruction.Subi.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;toCheck: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span> <span class="o">+</span> <span class="s2">&quot; | valorRd: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; | valorLd: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">Ld</span><span class="p">))</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">-</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR SUBI&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="And"><a class="viewcode-back" href="../moduls.html#instruction.And">[docs]</a><span class="k">class</span> <span class="nc">And</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe And</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;AND&quot;</span>
+
+<div class="viewcode-block" id="And.match"><a class="viewcode-back" href="../moduls.html#instruction.And.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;001000&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="And.execute"><a class="viewcode-back" href="../moduls.html#instruction.And.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">&amp;</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR AND&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Or"><a class="viewcode-back" href="../moduls.html#instruction.Or">[docs]</a><span class="k">class</span> <span class="nc">Or</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Or</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;OR&quot;</span>
+
+<div class="viewcode-block" id="Or.match"><a class="viewcode-back" href="../moduls.html#instruction.Or.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;001010&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Or.execute"><a class="viewcode-back" href="../moduls.html#instruction.Or.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">|</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR OR&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Eor"><a class="viewcode-back" href="../moduls.html#instruction.Eor">[docs]</a><span class="k">class</span> <span class="nc">Eor</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Eor</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;EOR&quot;</span>
+
+<div class="viewcode-block" id="Eor.match"><a class="viewcode-back" href="../moduls.html#instruction.Eor.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;001001&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Eor.execute"><a class="viewcode-back" href="../moduls.html#instruction.Eor.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">^</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR EOR&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Lsr"><a class="viewcode-back" href="../moduls.html#instruction.Lsr">[docs]</a><span class="k">class</span> <span class="nc">Lsr</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Lsr</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;LSR&quot;</span>
+
+<div class="viewcode-block" id="Lsr.match"><a class="viewcode-back" href="../moduls.html#instruction.Lsr.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1001010&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Lsr.execute"><a class="viewcode-back" href="../moduls.html#instruction.Lsr.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">valorRd</span><span class="p">))[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span><span class="p">):</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">+=</span> <span class="mi">4</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">-=</span> <span class="mi">4</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR LSR&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Mov"><a class="viewcode-back" href="../moduls.html#instruction.Mov">[docs]</a><span class="k">class</span> <span class="nc">Mov</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Mov</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;MOV&quot;</span>
+
+<div class="viewcode-block" id="Mov.match"><a class="viewcode-back" href="../moduls.html#instruction.Mov.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;001011&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Mov.execute"><a class="viewcode-back" href="../moduls.html#instruction.Mov.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR MOV&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Ldi"><a class="viewcode-back" href="../moduls.html#instruction.Ldi">[docs]</a><span class="k">class</span> <span class="nc">Ldi</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Ldi</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;LDI&quot;</span>
+
+<div class="viewcode-block" id="Ldi.match"><a class="viewcode-back" href="../moduls.html#instruction.Ldi.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1110&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Ldi.execute"><a class="viewcode-back" href="../moduls.html#instruction.Ldi.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+                    <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                        <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+                <span class="n">valorLd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorLd</span><span class="p">))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR LDI&quot;</span><span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Sts"><a class="viewcode-back" href="../moduls.html#instruction.Sts">[docs]</a><span class="k">class</span> <span class="nc">Sts</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Sts</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;STS&quot;</span>
+
+<div class="viewcode-block" id="Sts.match"><a class="viewcode-back" href="../moduls.html#instruction.Sts.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">7</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1001001&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Sts.execute"><a class="viewcode-back" href="../moduls.html#instruction.Sts.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">Ld</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">]</span>
+
+                <span class="n">valorRd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Ld</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorRd</span><span class="p">))</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR STS&quot;</span><span class="p">)</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Lds"><a class="viewcode-back" href="../moduls.html#instruction.Lds">[docs]</a><span class="k">class</span> <span class="nc">Lds</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Lds</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;LDS&quot;</span>
+
+<div class="viewcode-block" id="Lds.match"><a class="viewcode-back" href="../moduls.html#instruction.Lds.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;001010&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Lds.execute"><a class="viewcode-back" href="../moduls.html#instruction.Lds.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">Rd</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+                <span class="n">K</span> <span class="o">=</span> <span class="n">toCheck</span><span class="p">[</span><span class="mi">16</span><span class="p">:</span><span class="mi">32</span><span class="p">]</span>
+
+                <span class="n">valorK</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="mi">2</span><span class="p">)))</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="n">valorK</span><span class="p">))</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">2</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR STS&quot;</span><span class="p">)</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Rjmp"><a class="viewcode-back" href="../moduls.html#instruction.Rjmp">[docs]</a><span class="k">class</span> <span class="nc">Rjmp</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Rjmp</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;RJMP&quot;</span>
+
+<div class="viewcode-block" id="Rjmp.match"><a class="viewcode-back" href="../moduls.html#instruction.Rjmp.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1100&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Rjmp.execute"><a class="viewcode-back" href="../moduls.html#instruction.Rjmp.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">toCheck</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">16</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+
+                <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR RJMP&quot;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="Brbs"><a class="viewcode-back" href="../moduls.html#instruction.Brbs">[docs]</a><span class="k">class</span> <span class="nc">Brbs</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Brbs</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;BRBS&quot;</span>
+
+<div class="viewcode-block" id="Brbs.match"><a class="viewcode-back" href="../moduls.html#instruction.Brbs.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;111100&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Brbs.execute"><a class="viewcode-back" href="../moduls.html#instruction.Brbs.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">sreg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">toCheck</span><span class="p">[</span><span class="mi">13</span><span class="p">:</span><span class="mi">16</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+
+                <span class="n">yey</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c1">#Estem mirant el carry</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">#Estem mirant el Zero</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span> <span class="c1">#Estem mirant el negatiu</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">yey</span><span class="p">):</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR BRBS&quot;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="Brbc"><a class="viewcode-back" href="../moduls.html#instruction.Brbc">[docs]</a><span class="k">class</span> <span class="nc">Brbc</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Brbc</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;BRBC&quot;</span>
+
+<div class="viewcode-block" id="Brbc.match"><a class="viewcode-back" href="../moduls.html#instruction.Brbc.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">):</span>
+            <span class="n">aux</span> <span class="o">=</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:])</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">16</span><span class="o">-</span><span class="nb">len</span><span class="p">((</span><span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]))):</span>
+                <span class="n">aux</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">+</span> <span class="n">aux</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="n">aux</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;111101&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Brbc.execute"><a class="viewcode-back" href="../moduls.html#instruction.Brbc.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+                <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+                <span class="n">value</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">toCheck</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">13</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">sreg</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">toCheck</span><span class="p">[</span><span class="mi">13</span><span class="p">:</span><span class="mi">16</span><span class="p">],</span><span class="mi">2</span><span class="p">)</span>
+
+                <span class="n">yey</span> <span class="o">=</span> <span class="kc">False</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span> <span class="c1">#Estem mirant el carry</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span> <span class="c1">#Estem mirant el Zero</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">sreg</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span> <span class="c1">#Estem mirant el negatiu</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">flags</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                        <span class="n">yey</span> <span class="o">=</span> <span class="kc">True</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="n">yey</span><span class="p">):</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="n">value</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR BRBC&quot;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="Nop"><a class="viewcode-back" href="../moduls.html#instruction.Nop">[docs]</a><span class="k">class</span> <span class="nc">Nop</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Nop</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;NOP&quot;</span>
+
+<div class="viewcode-block" id="Nop.match"><a class="viewcode-back" href="../moduls.html#instruction.Nop.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Nop.execute"><a class="viewcode-back" href="../moduls.html#instruction.Nop.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+            <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR NOP&quot;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="Break"><a class="viewcode-back" href="../moduls.html#instruction.Break">[docs]</a><span class="k">class</span> <span class="nc">Break</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span> <span class="c1"># BREAK: 38296</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Break</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;IN&quot;</span>
+
+<div class="viewcode-block" id="Break.match"><a class="viewcode-back" href="../moduls.html#instruction.Break.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">==</span> <span class="mi">38296</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Break.execute"><a class="viewcode-back" href="../moduls.html#instruction.Break.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+            <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR BREAK&quot;</span><span class="p">)</span></div></div>
+
+<div class="viewcode-block" id="In"><a class="viewcode-back" href="../moduls.html#instruction.In">[docs]</a><span class="k">class</span> <span class="nc">In</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span> <span class="c1">#aquesta es diferent</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe In</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;IN&quot;</span>
+
+<div class="viewcode-block" id="In.match"><a class="viewcode-back" href="../moduls.html#instruction.In.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;10110&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="In.execute"><a class="viewcode-back" href="../moduls.html#instruction.In.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+            <span class="n">lel</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;IN (dec): &quot;</span><span class="p">)</span>
+
+            <span class="n">Rd</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:][</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Tot: &quot;</span> <span class="o">+</span> <span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Tret: &quot;</span> <span class="o">+</span> <span class="n">Rd</span><span class="p">)</span>
+
+            <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rd</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">Byte</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">lel</span><span class="p">)))</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR IN&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<div class="viewcode-block" id="Out"><a class="viewcode-back" href="../moduls.html#instruction.Out">[docs]</a><span class="k">class</span> <span class="nc">Out</span><span class="p">(</span><span class="n">InstRunner</span><span class="p">):</span> <span class="c1">#aquesta es diferent</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe Out</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        retorna una cadena que representa la instrucció</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;OUT&quot;</span>
+
+<div class="viewcode-block" id="Out.match"><a class="viewcode-back" href="../moduls.html#instruction.Out.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word i denota una instrucció. Retorna True si aquesta instància pot</span>
+<span class="sd">        executar la instrucció instr.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">toCheck</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">toCheck</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;10111&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Returning: &quot;</span> <span class="o">+</span> <span class="n">toCheck</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+            <span class="k">return</span> <span class="kc">False</span></div>
+
+<div class="viewcode-block" id="Out.execute"><a class="viewcode-back" href="../moduls.html#instruction.Out.execute">[docs]</a>    <span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">instr</span> <span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">instr</span><span class="p">)):</span>
+            <span class="n">Rr</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">)[</span><span class="mi">2</span><span class="p">:][</span><span class="mi">6</span><span class="p">:</span><span class="mi">11</span><span class="p">]</span>
+
+            <span class="n">A</span> <span class="o">=</span> <span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">)[</span><span class="mi">2</span><span class="p">:][</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="o">+</span> <span class="nb">bin</span><span class="p">(</span><span class="n">instr</span><span class="p">)[</span><span class="mi">2</span><span class="p">:][</span><span class="mi">11</span><span class="p">:</span><span class="mi">16</span><span class="p">]</span>
+
+            <span class="n">Aux</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">Aux</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rr</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span> <span class="mi">16</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">Aux</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rr</span><span class="p">,</span><span class="mi">2</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Aux</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="fm">__getitem__</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">Rr</span><span class="p">,</span><span class="mi">2</span><span class="p">))[</span><span class="mi">2</span><span class="p">:]</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+                <span class="n">Aux</span> <span class="o">=</span> <span class="n">Aux</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">Aux</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;ERROR: WRONG OP_CODE FOR OUT&quot;</span><span class="p">)</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pc</span> <span class="o">+=</span> <span class="mi">1</span></div></div>
+
+<span class="k">if</span> <span class="vm">__name__</span><span class="o">==</span><span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;prova ADD 2 registers&quot;</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">=</span><span class="n">State</span><span class="p">()</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">prog</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mb">0b0000110011010010</span>
+    <span class="c1">#print(s.prog[0])</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mb">0b01101</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mb">0b00010</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">a</span><span class="o">=</span><span class="n">Add</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">prog</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">prog</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">s</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Registre R13&quot;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">13</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Registre R2&quot;</span><span class="p">,</span><span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">trace_on</span><span class="p">()</span>
+    <span class="n">a</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">prog</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">s</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">trace_off</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+    <span class="c1">#s.dump_reg()</span>
+
+
+<span class="c1">#Result</span>
+<span class="c1"># prova ADD 2 registers</span>
+<span class="c1"># True</span>
+<span class="c1"># 0001</span>
+<span class="c1"># registre R1 0A</span>
+<span class="c1"># registre R2 05</span>
+<span class="c1"># Read 0x05 from 0x02</span>
+<span class="c1"># Read 0x0A from 0x01</span>
+<span class="c1"># Write 0x0F to 0x01</span>
+<span class="c1"># 0002</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">ProjecteFinal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../moduls.html">Mòduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentacio.html">Documentació</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Bernat Brunet Pedra, Juan Jose Gomez Pasos i Arnau Molina Vallano.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
