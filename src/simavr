@@ -4,21 +4,33 @@
 import sys
 from state import State
 from avrmcu import AvrMcu
+from intelhex import IntelHex
 
 f = AvrMcu()
 
-if sys.argv[1] == "-p":
-    #print("-p")
-    f.dump_prog()
+if len(sys.argv[2]) != 0:
+    
 
-if sys.argv[1] == "-r":
-    #print("-r")
-    f.dump_reg()
 
-if sys.argv[1] == "-d":
-    #print("-d")
-    f.dump_reg()
 
-if sys.argv[1] == "-t":
-    #print("-t")
-    f.set_trace(True)
+
+
+if sys.argv[1][0] == "-":
+    for x in sys.argv[1]:
+        if x == "-":
+            pass
+
+        if x == "p":
+            f.dump_prog()
+
+        if x == "r":
+            f.dump_reg()
+
+        if x == "d":
+            f.dump_dat()
+
+        if x == "t":
+            f.set_trace(True)
+
+        else:
+            print("Error")
