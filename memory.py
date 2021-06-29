@@ -74,17 +74,16 @@ class Memory(object): #falta saber on va
         Accés a memòria
 
         """
-        if self._trace:
-            try:
+        try:
+            if self._trace:
                 print("Read " + str(hex(self._m[addr])[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
+            return hex(self._m[addr])[2:].upper()
 
-            except IndexError:
+        except IndexError:
+            try:
+                print("Read from " + str(hex(addr)[2:].upper()) + " out of range")
+            except:
                 raise OutOfMemError("Read from " + str(hex(addr)[2:].upper()) + " out of range")
-
-        else:
-            pass
-
-        #return hex(self._m[addr])[2:].upper()
 
     def __setitem__(self, addr, val):
         """
@@ -95,17 +94,16 @@ class Memory(object): #falta saber on va
         bé "Write to 0005 out of range" segons escaigui.
 
         """
-        if self._trace:
-            try:
-                self._m[addr] = val
+        try:
+            self._m[addr] = val
+            if self._trace:
                 print("Write " + str(hex(val)[2:].upper()) + " to " + str(hex(addr)[2:].upper()))
 
-            except OutOfMemError:
+        except IndexError:
+            try:
+                print("Write to " + str(hex(addr)[2:].upper()) +" out of range")
+            except:
                 raise OutOfMemError("Write to " + str(hex(addr)[2:].upper()) +" out of range")
-
-
-        else:
-            self._m[addr] = val
 
 class ProgramMemory(Memory):
     """
