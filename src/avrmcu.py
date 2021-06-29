@@ -4,6 +4,7 @@ Mòdul AvrMcu
 """
 from repertoir import Repertoir
 from state import State
+from instruction import *
 
 class AvrMcu(object):
     """
@@ -30,7 +31,11 @@ class AvrMcu(object):
         p és una llista d’enters que representen un programa en llenguatge màquina de l’AVR.
         El mètode instal·la el programa p en la memòria de programa del simulador a partir de l’adreça 0000
         """
-        
+        aux = Word(0)
+        for i in p:
+            self._s.prog.__setitem__(int(aux), i)
+            aux += 1
+
     def dump_reg(self):
         """
         String dels registres
@@ -57,8 +62,10 @@ class AvrMcu(object):
         - Busca un Instrrunner que pugui execitar-la
         - Executa la instrucció
         Cal mirar les excepcions UnknownCodeError i BreakException
-
         """
+        for i in self._s.progLL:
+            a = self._rep.find(i)
+            a.execute(i, self._s)
 
     def set_trace(self , t):
         """
@@ -68,3 +75,9 @@ class AvrMcu(object):
             self._s.data.trace_on()
         else:
             self._s.data.trace_off()
+
+if __name__=='__main__':
+    a = AvrMcu()
+    a.set_trace(True)
+    a.set_prog([61199, 57617, 3857, 11313, 8192])
+    a.run()

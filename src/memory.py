@@ -76,8 +76,11 @@ class Memory(object): #falta saber on va
         """
         try:
             if self._trace:
-                print("Read " + str(hex(self._m[addr])[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
-            return hex(self._m[addr])[2:].upper()
+                hmm = self._m[addr]
+                if (type(hmm) != int):
+                    hmm = int(hmm)
+                print("Read " + str(hex(hmm)[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
+            return hex(hmm)[2:].upper()
 
         except IndexError:
             try:
@@ -183,7 +186,7 @@ if __name__=='__main__':
     a = DataMemory(45)
     #a.dump(0 , 33)
     #a.dump_reg()
-    a.trace_off()
+    a.trace_on()
     a.__setitem__(1 , 3)
     a.__setitem__(4 , 26)
     a.__setitem__(43 , 3)

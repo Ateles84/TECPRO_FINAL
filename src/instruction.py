@@ -67,15 +67,13 @@ class Add(InstRunner):
         if (toCheck[:6] == "000011"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
         """
         instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.
         """
-
-        instr = int(instr,16)
         if (self.match(instr)):
                 toCheck = ""
                 if (len(str(bin(instr))[2:]) <= 15):
@@ -133,8 +131,11 @@ class Adc(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
-        if (len(str(bin(instr))[2:]) <= 15):
+        if (len(bin(instr)[2:]) <= 15):
             aux = (str(bin(instr))[2:])
             for i in range(16-len((str(bin(instr))[2:]))):
                 aux = "0" + aux
@@ -145,7 +146,7 @@ class Adc(InstRunner):
         if (toCheck[:6] == "000111"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -168,8 +169,8 @@ class Adc(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
                 carry = 0
                 if (int(state.flags) > 3):
@@ -203,6 +204,9 @@ class Sub(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -215,7 +219,7 @@ class Sub(InstRunner):
         if (toCheck[:6] == "000110"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -238,8 +242,8 @@ class Sub(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
                 resultat =  Byte(valorRd) - Byte(valorLd)
 
@@ -284,6 +288,9 @@ class Subi(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -296,7 +303,7 @@ class Subi(InstRunner):
         if (toCheck[:4] == "0101"):
             return True
         else:
-            print("Returning: " + toCheck[:4])
+            #print("Returning: " + toCheck[:4])
             return False
 
     def execute(self , instr , state):
@@ -364,6 +371,9 @@ class And(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -376,7 +386,7 @@ class And(InstRunner):
         if (toCheck[:6] == "001000"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -399,8 +409,8 @@ class And(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
                 resultat = Byte(valorRd) & Byte(valorLd)
 
@@ -437,6 +447,9 @@ class Or(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -449,7 +462,7 @@ class Or(InstRunner):
         if (toCheck[:6] == "001010"):
             return True
         else:
-            print("Returning: " + toCheck[:4])
+            #print("Returning: " + toCheck[:4])
             return False
 
     def execute(self , instr , state):
@@ -472,8 +485,8 @@ class Or(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
                 resultat = Byte(valorRd) | Byte(valorLd)
 
@@ -510,6 +523,9 @@ class Eor(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -522,7 +538,7 @@ class Eor(InstRunner):
         if (toCheck[:6] == "001001"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -545,8 +561,8 @@ class Eor(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
                 resultat = Byte(valorRd) ^ Byte(valorLd)
 
@@ -583,6 +599,9 @@ class Lsr(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -595,7 +614,7 @@ class Lsr(InstRunner):
         if (toCheck[:7] == "1001010"):
             return True
         else:
-            print("Returning: " + toCheck[:7])
+            #print("Returning: " + toCheck[:7])
             return False
 
     def execute(self , instr , state):
@@ -617,7 +636,7 @@ class Lsr(InstRunner):
 
                 Rd = toCheck[7:12]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
 
                 resultat = Byte(valorRd) >> 1
 
@@ -652,6 +671,9 @@ class Mov(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -664,7 +686,7 @@ class Mov(InstRunner):
         if (toCheck[:6] == "001011"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -687,8 +709,8 @@ class Mov(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[6] + toCheck[12:16]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
-                valorLd = int(state.data.__getitem__(int(Ld,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
+                valorLd = int(state.data.__getitem__(int(Ld,2)), 16)
 
 
                 state.data.__setitem__(int(Rd,2), Byte(valorLd))
@@ -714,6 +736,9 @@ class Ldi(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -726,7 +751,7 @@ class Ldi(InstRunner):
         if (toCheck[:4] == "1110"):
             return True
         else:
-            print("Returning: " + toCheck[:4])
+            #print("Returning: " + toCheck[:4])
             return False
 
     def execute(self , instr , state):
@@ -773,6 +798,9 @@ class Sts(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -785,7 +813,7 @@ class Sts(InstRunner):
         if (toCheck[:7] == "1001001"):
             return True
         else:
-            print("Returning: " + toCheck[:7])
+            #print("Returning: " + toCheck[:7])
             return False
 
     def execute(self , instr , state):
@@ -801,7 +829,7 @@ class Sts(InstRunner):
                 Rd = toCheck[7:12]
                 Ld = toCheck[16:32]
 
-                valorRd = int(state.data.__getitem__(int(Rd,2)))
+                valorRd = int(state.data.__getitem__(int(Rd,2)), 16)
 
                 state.data.__setitem__(int(Ld,2), Byte(valorRd))
 
@@ -827,6 +855,9 @@ class Lds(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
             for i in range(16-len((str(bin(instr))[2:]))):
@@ -838,7 +869,7 @@ class Lds(InstRunner):
         if (toCheck[:6] == "001010"):
             return True
         else:
-            print("Returning: " + toCheck[:4])
+            #print("Returning: " + toCheck[:4])
             return False
 
     def execute(self , instr , state):
@@ -854,7 +885,7 @@ class Lds(InstRunner):
                 Rd = toCheck[7:12]
                 K = toCheck[16:32]
 
-                valorK = int(state.data.__getitem__(int(K,2)))
+                valorK = int(state.data.__getitem__(int(K,2)), 16)
 
                 state.data.__setitem__(int(Rd,2), Byte(valorK))
 
@@ -879,6 +910,9 @@ class Rjmp(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
             for i in range(16-len((str(bin(instr))[2:]))):
@@ -890,7 +924,7 @@ class Rjmp(InstRunner):
         if (toCheck[:4] == "1100"):
             return True
         else:
-            print("Returning: " + toCheck[:4])
+            #print("Returning: " + toCheck[:4])
             return False
 
     def execute(self , instr , state):
@@ -926,6 +960,9 @@ class Brbs(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -938,7 +975,7 @@ class Brbs(InstRunner):
         if (toCheck[:6] == "111100"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -989,6 +1026,9 @@ class Brbc(InstRunner):
         instr és un Word i denota una instrucció. Retorna True si aquesta instància pot
         executar la instrucció instr.
         """
+        if not type(instr) == int:
+            instr = int(instr)
+
         toCheck = ""
         if (len(str(bin(instr))[2:]) <= 15):
             aux = (str(bin(instr))[2:])
@@ -1001,7 +1041,7 @@ class Brbc(InstRunner):
         if (toCheck[:6] == "111101"):
             return True
         else:
-            print("Returning: " + toCheck[:6])
+            #print("Returning: " + toCheck[:6])
             return False
 
     def execute(self , instr , state):
@@ -1054,7 +1094,7 @@ class Nop(InstRunner):
         if (int(instr) == 0):
             return True
         else:
-            print("Returning: " + bin(instr))
+            #print("Returning: " + bin(instr))
             return False
 
     def execute(self , instr , state):
@@ -1087,7 +1127,7 @@ class Break(InstRunner): # BREAK: 38296
         if (int(instr) == 38296):
             return True
         else:
-            print("Returning: " + toCheck[:5])
+            #print("Returning: " + toCheck[:5])
             return False
 
     def execute(self , instr , state):
@@ -1123,7 +1163,7 @@ class In(InstRunner): #aquesta es diferent
         if (toCheck[:5] == "10110"):
             return True
         else:
-            print("Returning: " + toCheck[:5])
+            #print("Returning: " + toCheck[:5])
             return False
 
     def execute(self , instr , state):
@@ -1167,7 +1207,7 @@ class Out(InstRunner): #aquesta es diferent
         if (toCheck[:5] == "10111"):
             return True
         else:
-            print("Returning: " + toCheck[:5])
+            #print("Returning: " + toCheck[:5])
             return False
 
     def execute(self , instr , state):
@@ -1186,10 +1226,10 @@ class Out(InstRunner): #aquesta es diferent
             if (int(A,2) == 0):
                 Aux = int(state.data.__getitem__(int(Rr,2)), 16)
             elif (int(A,2) == 1):
-                Aux = state.data.__getitem__(int(Rr,2))[2:].upper()
+                Aux = state.data.__getitem__(int(Rr,2)).upper()
             else:
-                Aux = state.data.__getitem__(int(Rr,2))[2:].encode()
-                Aux = Aux.decode()
+                Aux = int(state.data.__getitem__(int(Rr,2)), 16)
+                Aux = chr(Aux)
             print(Aux)
 
         else:

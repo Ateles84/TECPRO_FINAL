@@ -20,7 +20,7 @@ class Repertoir(object):
         """
         instr és un Word que denota una instrucció. El mètode retorna un objecte InstRunner capaç d’executar la instrucció instr. En cas que no existeixi cap InstRunner capaç d’executar la instrucció, aixeca l’excepció UnknownCodeError.
         """
-        for x in li:
+        for x in self._li:
             if (x.match(instr)):
                 return x
         raise UnknownCodeError("No s'ha trobat cap ordre per l'instr introduit: " + bin(instr)[2:])
