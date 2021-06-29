@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+#−∗−coding: utf−8−∗−
+
+import sys
+from state import State
+from avrmcu import AvrMcu
+
+f = AvrMcu()
+
+if sys.argv[1] == "-p":
+    #print("-p")
+    f.dump_prog()
+
+if sys.argv[1] == "-r":
+    #print("-r")
+    f.dump_reg()
+
+if sys.argv[1] == "-d":
+    #print("-d")
+    f.dump_reg()
+
+if sys.argv[1] == "-t":
+    #print("-t")
+    f.set_trace(True)
