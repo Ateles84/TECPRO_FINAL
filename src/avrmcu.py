@@ -31,7 +31,6 @@ class AvrMcu(object):
         El mètode instal·la el programa p en la memòria de programa del simulador a partir de l’adreça 0000
         """
         
-
     def dump_reg(self):
         """
         String dels registres

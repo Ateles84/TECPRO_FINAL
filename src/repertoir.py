@@ -2,7 +2,7 @@
 Mòdul Repertoir
 
 """
-
+from avrexcept import AVRException
 from instruction import InstRunner
 
 class Repertoir(object):

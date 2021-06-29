@@ -1176,7 +1176,7 @@ class Out(InstRunner): #aquesta es diferent
         """
         if not type(instr) == int:
             instr = int(instr,16)
-            
+
         if (self.match(instr)):
             Rr = bin(instr)[2:][6:11]
 
