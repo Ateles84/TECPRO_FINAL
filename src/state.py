@@ -53,7 +53,14 @@ class State(object):
             while len(str(x)) < len(str(len(self.progLL))):
                 x = "0" + str(x)
 
-            print(str(x) + ": " + str(y))
+            lel = y
+            if (type(y) == int):
+                lel = bin(y)[2:]
+
+                while len(lel) < 16:
+                    lel = "0" + lel
+
+            print(str(x) + ": " + str(lel))
 
     def dump_reg(self):
         """

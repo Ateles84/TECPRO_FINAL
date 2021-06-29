@@ -79,5 +79,5 @@ class AvrMcu(object):
 if __name__=='__main__':
     a = AvrMcu()
     a.set_trace(True)
-    a.set_prog([61199, 57617, 3857, 11313, 8192])
+    a.set_prog([58369, 47107])
     a.run()
