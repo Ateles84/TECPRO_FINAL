@@ -33,6 +33,61 @@
             
   <div class="section" id="module-avrexcept">
 <span id="moduls"></span><h1>Mòduls<a class="headerlink" href="#module-avrexcept" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-avrmcu"></span><p>Mòdul AvrMcu</p>
+<dl class="class">
+<dt id="avrmcu.AvrMcu">
+<em class="property">class </em><code class="descclassname">avrmcu.</code><code class="descname">AvrMcu</code><a class="reference internal" href="_modules/avrmcu.html#AvrMcu"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe AvrMcu</p>
+<dl class="method">
+<dt id="avrmcu.AvrMcu.dump_dat">
+<code class="descname">dump_dat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.dump_dat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.dump_dat" title="Permalink to this definition">¶</a></dt>
+<dd><p>String de la memòria de dades</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.dump_prog">
+<code class="descname">dump_prog</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.dump_prog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.dump_prog" title="Permalink to this definition">¶</a></dt>
+<dd><p>String de la memòria de programa</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.dump_reg">
+<code class="descname">dump_reg</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.dump_reg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.dump_reg" title="Permalink to this definition">¶</a></dt>
+<dd><p>String dels registres</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fa un reset de l’estat deixant-lo de la mateixa forma que el mètode init .</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.run">
+<code class="descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mètode principal.
+Fa iteracions infinites que:
+- Obté la instrucció del PC
+- Busca un Instrrunner que pugui execitar-la
+- Executa la instrucció
+Cal mirar les excepcions UnknownCodeError i BreakException</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.set_prog">
+<code class="descname">set_prog</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.set_prog"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.set_prog" title="Permalink to this definition">¶</a></dt>
+<dd><p>p és una llista d’enters que representen un programa en llenguatge màquina de l’AVR.
+El mètode instal·la el programa p en la memòria de programa del simulador a partir de l’adreça 0000</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="avrmcu.AvrMcu.set_trace">
+<code class="descname">set_trace</code><span class="sig-paren">(</span><em>t</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/avrmcu.html#AvrMcu.set_trace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#avrmcu.AvrMcu.set_trace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quan s’invova amb t=True activa el mode trace de la memòria de dades. Si s’activa amb t=False es desactiva el mode.</p>
+</dd></dl>
+
+</dd></dl>
+
 <span class="target" id="module-bitvector"></span><dl class="class">
 <dt id="bitvector.BitVector">
 <em class="property">class </em><code class="descclassname">bitvector.</code><code class="descname">BitVector</code><span class="sig-paren">(</span><em>w=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/bitvector.html#BitVector"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#bitvector.BitVector" title="Permalink to this definition">¶</a></dt>
@@ -518,6 +573,25 @@ Z(R31:R30): 0000</p>
 <dt id="memory.ProgramMemory">
 <em class="property">class </em><code class="descclassname">memory.</code><code class="descname">ProgramMemory</code><span class="sig-paren">(</span><em>ncells=1024</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/memory.html#ProgramMemory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#memory.ProgramMemory" title="Permalink to this definition">¶</a></dt>
 <dd><p>Classe ProgramMemory</p>
+</dd></dl>
+
+<span class="target" id="module-repertoir"></span><p>Mòdul Repertoir</p>
+<dl class="class">
+<dt id="repertoir.Repertoir">
+<em class="property">class </em><code class="descclassname">repertoir.</code><code class="descname">Repertoir</code><span class="sig-paren">(</span><em>li</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/repertoir.html#Repertoir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#repertoir.Repertoir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe Repertoir</p>
+<dl class="method">
+<dt id="repertoir.Repertoir.find">
+<code class="descname">find</code><span class="sig-paren">(</span><em>instr</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/repertoir.html#Repertoir.find"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#repertoir.Repertoir.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>instr és un Word que denota una instrucció. El mètode retorna un objecte InstRunner capaç d’executar la instrucció instr. En cas que no existeixi cap InstRunner capaç d’executar la instrucció, aixeca l’excepció UnknownCodeError.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="repertoir.UnknownCodeError">
+<em class="property">class </em><code class="descclassname">repertoir.</code><code class="descname">UnknownCodeError</code><a class="reference internal" href="_modules/repertoir.html#UnknownCodeError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#repertoir.UnknownCodeError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classe UnknownCodeError</p>
 </dd></dl>
 
 <span class="target" id="module-state"></span><p>Mòdul State</p>

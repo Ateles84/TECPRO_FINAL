@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cat">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>avrmcu &#8212; ProjecteFinal 1.0b2 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for avrmcu</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Mòdul AvrMcu</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">repertoir</span> <span class="k">import</span> <span class="n">Repertoir</span>
+<span class="kn">from</span> <span class="nn">state</span> <span class="k">import</span> <span class="n">State</span>
+
+<div class="viewcode-block" id="AvrMcu"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu">[docs]</a><span class="k">class</span> <span class="nc">AvrMcu</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Classe AvrMcu</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mètode constructor</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">llistaInstruccions</span> <span class="o">=</span> <span class="p">[</span><span class="n">Add</span><span class="p">(),</span> <span class="n">Adc</span><span class="p">(),</span> <span class="n">Sub</span><span class="p">(),</span> <span class="n">Subi</span><span class="p">(),</span> <span class="n">And</span><span class="p">(),</span> <span class="n">Or</span><span class="p">(),</span> <span class="n">Eor</span><span class="p">(),</span> <span class="n">Lsr</span><span class="p">(),</span> <span class="n">Mov</span><span class="p">(),</span> <span class="n">Ldi</span><span class="p">(),</span> <span class="n">Sts</span><span class="p">(),</span> <span class="n">Lds</span><span class="p">(),</span> <span class="n">Rjmp</span><span class="p">(),</span> <span class="n">Brbs</span><span class="p">(),</span> <span class="n">Brbc</span><span class="p">(),</span> <span class="n">Nop</span><span class="p">(),</span> <span class="n">Out</span><span class="p">(),</span> <span class="n">In</span><span class="p">(),</span> <span class="n">Break</span><span class="p">()]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rep</span> <span class="o">=</span> <span class="n">Repertoir</span><span class="p">(</span><span class="n">llistaInstruccions</span><span class="p">)</span>
+
+<div class="viewcode-block" id="AvrMcu.reset"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Fa un reset de l’estat deixant-lo de la mateixa forma que el mètode init .</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AvrMcu.set_prog"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.set_prog">[docs]</a>    <span class="k">def</span> <span class="nf">set_prog</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        p és una llista d’enters que representen un programa en llenguatge màquina de l’AVR.</span>
+<span class="sd">        El mètode instal·la el programa p en la memòria de programa del simulador a partir de l’adreça 0000</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+        
+
+
+<div class="viewcode-block" id="AvrMcu.dump_reg"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.dump_reg">[docs]</a>    <span class="k">def</span> <span class="nf">dump_reg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String dels registres</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">dump_reg</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AvrMcu.dump_dat"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.dump_dat">[docs]</a>    <span class="k">def</span> <span class="nf">dump_dat</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String de la memòria de dades</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">dump_dat</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AvrMcu.dump_prog"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.dump_prog">[docs]</a>    <span class="k">def</span> <span class="nf">dump_prog</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        String de la memòria de programa</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">dump_prog</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="AvrMcu.run"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Mètode principal.</span>
+<span class="sd">        Fa iteracions infinites que:</span>
+<span class="sd">        - Obté la instrucció del PC</span>
+<span class="sd">        - Busca un Instrrunner que pugui execitar-la</span>
+<span class="sd">        - Executa la instrucció</span>
+<span class="sd">        Cal mirar les excepcions UnknownCodeError i BreakException</span>
+
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+<div class="viewcode-block" id="AvrMcu.set_trace"><a class="viewcode-back" href="../moduls.html#avrmcu.AvrMcu.set_trace">[docs]</a>    <span class="k">def</span> <span class="nf">set_trace</span><span class="p">(</span><span class="bp">self</span> <span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Quan s’invova amb t=True activa el mode trace de la memòria de dades. Si s’activa amb t=False es desactiva el mode.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">t</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">trace_on</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">trace_off</span><span class="p">()</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">ProjecteFinal</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../moduls.html">Mòduls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentacio.html">Documentació</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2021, Bernat Brunet Pedra, Juan Jose Gomez Pasos i Arnau Molina Vallano.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
