@@ -74,6 +74,8 @@ class Add(InstRunner):
         """
         instr és un Word que denota una instrucció. state és una instància de la classe State. El mètode executa la instrucció i, com a resultat, modifica l’estat del microcontrolador al qual accedeix a través del paràmetre corresponent. Per poder executar la instrucció l’ha de descodificar, obtenir els operands (fetch), calcular el resultat, modificar convenientment el registre d’estat i emmagatzemar el resultat.
         """
+        if not type(instr) == int:
+            instr = int(instr,16)
         if (self.match(instr)):
                 toCheck = ""
                 if (len(str(bin(instr))[2:]) <= 15):
@@ -328,7 +330,7 @@ class Subi(InstRunner):
 
                 valorRd = int(state.data.__getitem__(int(Rd,2)))
                 valorLd = int(Ld,2)
-                print("toCheck: " + toCheck + " | valorRd: " + str(valorRd) + " | valorLd: " + str(Ld))
+                #print("toCheck: " + toCheck + " | valorRd: " + str(valorRd) + " | valorLd: " + str(Ld))
 
                 resultat =  Byte(valorRd) - Byte(valorLd)
 
@@ -1178,7 +1180,7 @@ class In(InstRunner): #aquesta es diferent
 
             Rd = str(bin(instr))[2:][6:11]
 
-            print("Tot: " + bin(instr) + "\nTret: " + Rd)
+            #print("Tot: " + bin(instr) + "\nTret: " + Rd)
 
             state.data.__setitem__(int(Rd,2), Byte(int(lel)))
 
@@ -1230,7 +1232,7 @@ class Out(InstRunner): #aquesta es diferent
             else:
                 Aux = int(state.data.__getitem__(int(Rr,2)), 16)
                 Aux = chr(Aux)
-            print(Aux)
+            #print(Aux)
 
         else:
             print("ERROR: WRONG OP_CODE FOR OUT")

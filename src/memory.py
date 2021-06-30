@@ -75,8 +75,9 @@ class Memory(object): #falta saber on va
 
         """
         try:
+            hmm = self._m[addr]
+
             if self._trace:
-                hmm = self._m[addr]
                 if (type(hmm) != int):
                     hmm = int(hmm)
                 print("Read " + str(hex(hmm)[2:].upper()) + " from " + str(hex(addr)[2:].upper()))
